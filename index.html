@@ -367,31 +367,13 @@ function init() {
 		ctx.clearRect(0, 0, width, height);
 	}
 
-	function handleOrientation(event) {
-  		updateFieldIfNotNull('Orientation_a', event.alpha);
-  		updateFieldIfNotNull('Orientation_b', event.beta);
-  		updateFieldIfNotNull('Orientation_g', event.gamma);
-  	incrementEventCount();
-	}
-
-	function incrementEventCount(){
-  		let counterElement = document.getElementById("num-observed-events")
-  		let eventCount = parseInt(counterElement.innerHTML)
-  		counterElement.innerHTML = eventCount + 1;
-	}
-
-	function updateFieldIfNotNull(fieldName, value, precision=10){
-  		if (value != null)
-    	document.getElementById(fieldName).innerHTML = value.toFixed(precision);
-	}
 
 
 	function playerCalc() {
-		var gamma1 = event.gamma
-		if (dir == "left" || gamma1 < 0) {
+		if (dir == "left") {
 			player.dir = "left";
 			if (player.vy < -7 && player.vy > -15) player.dir = "left_land";
-		} else if (dir == "right" || gamma1 > 0) {
+		} else if (dir == "right") {
 			player.dir = "right";
 			if (player.vy < -7 && player.vy > -15) player.dir = "right_land";
 		}
