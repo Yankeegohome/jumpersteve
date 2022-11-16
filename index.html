@@ -667,7 +667,7 @@ function playerJump() {
 
 	document.onkeydown = function(e) {
 		var key = e.keyCode;
-		var g = gamma;
+		var g = e.gamma;
 
 		if (key == 37 || g <-5) {
 			dir = "left";
