@@ -367,12 +367,19 @@ function init() {
 		ctx.clearRect(0, 0, width, height);
 	}
 
+	function handleOrientation(event) {
+  		updateFieldIfNotNull('Orientation_a', event.alpha);
+  		updateFieldIfNotNull('Orientation_b', event.beta);
+  		updateFieldIfNotNull('Orientation_g', event.gamma);
+  	incrementEventCount();
+	}
+
 
 	function playerCalc() {
-		if (dir == "left") {
+		if (dir == "left" or event.gamma < -5) {
 			player.dir = "left";
 			if (player.vy < -7 && player.vy > -15) player.dir = "left_land";
-		} else if (dir == "right") {
+		} else if (dir == "right" or event.gamma > 1) {
 			player.dir = "right";
 			if (player.vy < -7 && player.vy > -15) player.dir = "right_land";
 		}
