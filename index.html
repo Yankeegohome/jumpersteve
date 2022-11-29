@@ -669,10 +669,10 @@ function playerJump() {
 		var key = e.keyCode;
 		var g = e.gamma;
 
-		if (key == 37 || g <-5) {
+		if (key == 37) {
 			dir = "left";
 			player.isMovingLeft = true;
-		} else if (key == 39 || g > 5) {
+		} else if (key == 39) {
 			dir = "right";
 			player.isMovingRight = true;
 		}
